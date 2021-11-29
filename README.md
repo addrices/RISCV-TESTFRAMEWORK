@@ -2,7 +2,7 @@
 
 ## 安装方法
 ```
-git clone 
+git clone https://github.com/addrices/RISCV-TESTFRAMEWORK
 
 sudo apt-get install verilator
 ```
