@@ -1,6 +1,6 @@
 // 这个可以根据自己的需求修改
 module rv32is(
-	input 	clock，
+	input 	clock,
 	input 	reset,
 	output [31:0] imemaddr,			//imem的地址
 	input  [31:0] imemdataout,	//imem读取到的数据

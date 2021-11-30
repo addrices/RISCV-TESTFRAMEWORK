@@ -82,6 +82,19 @@ always @(posedge clk) begin
 	end
 end
 
+/*
+reg [31:0] count_r;
+always @(posedge clk) begin
+  if(reset == 1) begin
+    count_r <= 0;
+  end
+  else begin
+    count_r <= count_r + 1;
+    $display("count_r: %d ",count_r);
+  end
+end
+*/
+
 endmodule
 
 module testmem(
