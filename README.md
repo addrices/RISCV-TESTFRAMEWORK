@@ -7,23 +7,6 @@ git clone https://github.com/addrices/RISCV-TESTFRAMEWORK
 
 sudo apt-get install verilator
 ```
-
-安装riscv编译链(riscv32-unknown-elf-xxx)
-```
-git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
-
-cd riscv-gnu-toolchain
-
-../configure --prefix=/opt/riscv32 --with-arch=rv32imc --with-abi=ilp32
-
-sudo make linux
-```
-
-编译riscv-test()
-```
-```
-
-
 注意使用的 verilator 版本为 3.916，ubuntu18.04 的源可以用的。
 
 ## 你的工作

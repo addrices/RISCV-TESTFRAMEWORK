@@ -35,7 +35,7 @@ module cpu_tst(
 	output [31:0] dbgregs_29,	
 	output [31:0] dbgregs_30,
 	output [31:0] dbgregs_31,
-	output done,              //当读取到全0的Instr的时候完成拉高，保持PC不变
+	output done,              //当读取到0xdead10cc的Instr的时候完成拉高，保持PC不变
 	output wb                 //当前周期是否有指令完成
 );
 

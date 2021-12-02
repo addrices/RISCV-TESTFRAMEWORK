@@ -2,7 +2,7 @@
 
 OBJ_DIR := output
 SRC_DIR := src
-V_FILES := $(shell find $(SCALA_DIR) -name "*.v")
+V_FILES := $(shell find $(SRC_DIR) -name "*.v")
 
 EMU_SRC_DIR := emu
 EMU_TOP_MODULE := cpu_tst
