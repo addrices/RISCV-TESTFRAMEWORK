@@ -91,6 +91,8 @@ int main(int argc, char **argv) {
   dut->testcase = testcase;
   mycpu->testcase = testcase;
   next_cycle_r(dut);
+  next_cycle_r(dut);
+  next_cycle(mycpu);
   next_cycle(mycpu);
   dut->reset = 0;
   mycpu->reset = 0;
