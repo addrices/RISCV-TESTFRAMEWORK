@@ -13,7 +13,7 @@ module rv32is(
 	output [2:0] dmemop,				//3'b000:sb 3'b001:sh 3'b010://sw
 	output	dmemwe,							//dmem写有效
 	output [31:0] dbg_pc,				//当前完成的指令的PC
-	output done,								//读取到Instr为0时认为程序结束
+	output done,								//读取到Instr为0xdead10cc时认为程序结束
 	output wb										//当前周期是否有指令完成
 );//add your code here
 

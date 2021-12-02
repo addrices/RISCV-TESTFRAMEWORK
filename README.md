@@ -8,6 +8,22 @@ git clone https://github.com/addrices/RISCV-TESTFRAMEWORK
 sudo apt-get install verilator
 ```
 
+安装riscv编译链(riscv32-unknown-elf-xxx)
+```
+git clone --recursive https://github.com/riscv/riscv-gnu-toolchain
+
+cd riscv-gnu-toolchain
+
+../configure --prefix=/opt/riscv32 --with-arch=rv32imc --with-abi=ilp32
+
+sudo make linux
+```
+
+编译riscv-test()
+```
+```
+
+
 注意使用的 verilator 版本为 3.916，ubuntu18.04 的源可以用的。
 
 ## 你的工作
@@ -27,6 +43,13 @@ makefile 文件可以通过`make xxx -nb`查阅其需要的指令。执行流程
 所有 mem 的读行为延后一个周期，配合板上使用 bram 实现。
 
 cpu_shell 中提供了 instr_mem 和 data_mem 的初始化，最好阅读一下理解原理。
+
+## 注意事项
+1. 额外支持一条空指令0xdead10cc，当读取到此指令时，CPU停滞在该指令，不做任何操作。
+
+2. cpu每完成一条指令的写回，拉高wb信号，并在dbg_pc上输出该指令的PC。
+
+3. cpu的pc的起始地址为0x80000000
 
 ## Debug
 
