@@ -9,6 +9,32 @@ sudo apt-get install verilator
 ```
 注意使用的 verilator 版本为 3.916，ubuntu18.04 的源可以用的。
 
+testcase部分
+```
+git clone --recursive git@github.com:addrices/riscv-tests.git     //此仓库中包含有编译好的riscv32-unknown-elf编译链
+
+cd riscv-tests
+
+tar zxf gcc_riscv32-linux-7.3.0.tar.gz
+
+sudo mv gcc_riscv32 /opt/
+```
+
+之后在.bashrc或者.zshrc中文件中添加环境变量
+```
+export RISCV_HOME=/opt/gcc_riscv32
+export PATH=$RISCV_HOME/bin:$PATH
+```
+
+设置好编译器后，进入riscv-tests目录
+```
+autoconf
+./configure --with-xlen=32
+make isa
+```
+我只编译了rv32ui的测试部分，其中得到的.hex和_d.hex分别是imem和dmem中的内容,.dump是与之对应的汇编码。
+
+
 ## 你的工作
 
 在 mycpu.v 这个文件中添加你的 cpu 逻辑。在当前目录下运行`make run-emu`进行测试。

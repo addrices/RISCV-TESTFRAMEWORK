@@ -78,6 +78,7 @@ dmem datamem(.addr(daddr),
 always @(posedge clk) begin
 	if(reset == 1) begin
 		$readmemh({testcase, ".hex"},instructions.ram);
+    $readmemh({testcase, "_d.hex"},datamem.mymem.ram);
 		$display("~~~ Begin test case %s ~~~", testcase);
 	end
 end
