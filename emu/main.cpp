@@ -96,7 +96,6 @@ int main(int argc, char **argv) {
   next_cycle(mycpu);
   dut->reset = 0;
   mycpu->reset = 0;
-  next_cycle_r(dut);
 
   for (int i = 0; i < 1000; i++) {
     next_cycle(mycpu);
