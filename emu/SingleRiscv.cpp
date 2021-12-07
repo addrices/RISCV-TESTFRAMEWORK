@@ -76,7 +76,7 @@ void SingleRiscv::_initial__TOP__1(SingleRiscv__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    SingleRiscv::_initial__TOP__1\n"); );
     SingleRiscv* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    // INITIAL at src/cpu.v:726
+    // INITIAL at src/cpu.v:760
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs[0U] = 0U;
 }
 
@@ -111,7 +111,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__2(SingleRiscv__Syms* __restrict v
 	VL_WRITEF("~~~ Begin test case %s ~~~\n",64,
 		  vlTOPp->testcase);
     }
-    // ALWAYS at src/cpu.v:135
+    // ALWAYS at src/cpu.v:169
     if (vlTOPp->cpu_tst__DOT__mycpu__DOT__memwr) {
 	vlTOPp->cpu_tst__DOT__datamem__DOT__mymem__DOT__tempout 
 	    = vlTOPp->cpu_tst__DOT__datamem__DOT__mymem__DOT__ram
@@ -140,7 +140,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
     __Vdlyvset__cpu_tst__DOT__datamem__DOT__mymem__DOT__ram__v0 = 0U;
     __Vdly__cpu_tst__DOT__mycpu__DOT__pc_r = vlTOPp->cpu_tst__DOT__mycpu__DOT__pc_r;
     __Vdlyvset__cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs__v0 = 0U;
-    // ALWAYS at src/cpu.v:148
+    // ALWAYS at src/cpu.v:182
     if (vlTOPp->cpu_tst__DOT__mycpu__DOT__memwr) {
 	__Vdlyvval__cpu_tst__DOT__datamem__DOT__mymem__DOT__ram__v0 
 	    = vlTOPp->cpu_tst__DOT__datamem__DOT__mymem__DOT__tempin;
@@ -149,7 +149,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
 	    = (0x7fffU & (vlTOPp->cpu_tst__DOT__daddr 
 			  >> 2U));
     }
-    // ALWAYS at src/cpu.v:313
+    // ALWAYS at src/cpu.v:347
     if (vlTOPp->reset) {
 	__Vdly__cpu_tst__DOT__mycpu__DOT__pc_r = 0x80000000U;
 	vlTOPp->cpu_tst__DOT__mycpu__DOT__wb_r = 0U;
@@ -160,7 +160,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
 	    = vlTOPp->cpu_tst__DOT__mycpu__DOT__pc_r;
 	__Vdly__cpu_tst__DOT__mycpu__DOT__pc_r = vlTOPp->cpu_tst__DOT__mycpu__DOT__nextpc;
     }
-    // ALWAYS at src/cpu.v:732
+    // ALWAYS at src/cpu.v:766
     if (vlTOPp->cpu_tst__DOT__mycpu__DOT__regwr) {
 	__Vdlyvval__cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs__v0 
 	    = ((0U == (0x1fU & (vlTOPp->cpu_tst__DOT__idataout 
@@ -240,20 +240,84 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
 	    = (0x1fU & (vlTOPp->cpu_tst__DOT__idataout 
 			>> 7U));
     }
-    // ALWAYSPOST at src/cpu.v:152
+    // ALWAYSPOST at src/cpu.v:186
     if (__Vdlyvset__cpu_tst__DOT__datamem__DOT__mymem__DOT__ram__v0) {
 	vlTOPp->cpu_tst__DOT__datamem__DOT__mymem__DOT__ram[__Vdlyvdim0__cpu_tst__DOT__datamem__DOT__mymem__DOT__ram__v0] 
 	    = __Vdlyvval__cpu_tst__DOT__datamem__DOT__mymem__DOT__ram__v0;
     }
     vlTOPp->cpu_tst__DOT__mycpu__DOT__pc_r = __Vdly__cpu_tst__DOT__mycpu__DOT__pc_r;
-    // ALWAYSPOST at src/cpu.v:734
+    // ALWAYSPOST at src/cpu.v:768
     if (__Vdlyvset__cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs__v0) {
 	vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs[__Vdlyvdim0__cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs__v0] 
 	    = __Vdlyvval__cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs__v0;
     }
     vlTOPp->wb = vlTOPp->cpu_tst__DOT__mycpu__DOT__wb_r;
     vlTOPp->dbg_pc = vlTOPp->cpu_tst__DOT__mycpu__DOT__dbg_pc_r;
-    // ALWAYS at src/cpu.v:105
+    vlTOPp->dbgregs_0 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0U];
+    vlTOPp->dbgregs_1 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[1U];
+    vlTOPp->dbgregs_2 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[2U];
+    vlTOPp->dbgregs_3 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[3U];
+    vlTOPp->dbgregs_4 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[4U];
+    vlTOPp->dbgregs_5 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[5U];
+    vlTOPp->dbgregs_6 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[6U];
+    vlTOPp->dbgregs_7 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[7U];
+    vlTOPp->dbgregs_8 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[8U];
+    vlTOPp->dbgregs_9 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[9U];
+    vlTOPp->dbgregs_10 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xaU];
+    vlTOPp->dbgregs_11 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xbU];
+    vlTOPp->dbgregs_12 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xcU];
+    vlTOPp->dbgregs_13 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xdU];
+    vlTOPp->dbgregs_14 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xeU];
+    vlTOPp->dbgregs_15 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xfU];
+    vlTOPp->dbgregs_16 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x10U];
+    vlTOPp->dbgregs_17 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x11U];
+    vlTOPp->dbgregs_18 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x12U];
+    vlTOPp->dbgregs_19 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x13U];
+    vlTOPp->dbgregs_20 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x14U];
+    vlTOPp->dbgregs_21 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x15U];
+    vlTOPp->dbgregs_22 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x16U];
+    vlTOPp->dbgregs_23 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x17U];
+    vlTOPp->dbgregs_24 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x18U];
+    vlTOPp->dbgregs_25 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x19U];
+    vlTOPp->dbgregs_26 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1aU];
+    vlTOPp->dbgregs_27 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1bU];
+    vlTOPp->dbgregs_28 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1cU];
+    vlTOPp->dbgregs_29 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1dU];
+    vlTOPp->dbgregs_30 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1eU];
+    vlTOPp->dbgregs_31 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1fU];
+    // ALWAYS at src/cpu.v:139
     vlTOPp->cpu_tst__DOT__idataout = vlTOPp->cpu_tst__DOT__instructions__DOT__ram
 	[(0xffffU & (((IData)(vlTOPp->reset) ? 0U : vlTOPp->cpu_tst__DOT__mycpu__DOT__nextpc) 
 		     >> 2U))];
@@ -299,7 +363,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
 						       << 0x10U)) 
 						   | (0xffffU 
 						      & vlTOPp->cpu_tst__DOT__mycpu__DOT__rs2data))));
-    // ALWAYS at src/cpu.v:583
+    // ALWAYS at src/cpu.v:617
     vlTOPp->cpu_tst__DOT__mycpu__DOT__extop = 0U;
     vlTOPp->cpu_tst__DOT__mycpu__DOT__regwr = 0U;
     vlTOPp->cpu_tst__DOT__mycpu__DOT__aluasrc = 0U;
@@ -444,7 +508,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
 	= (1U & (((IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr) 
 		  >> 3U) | ((IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr) 
 			    >> 1U)));
-    // ALWAYS at src/cpu.v:678
+    // ALWAYS at src/cpu.v:712
     vlTOPp->cpu_tst__DOT__mycpu__DOT__imm = ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__extop))
 					      ? ((2U 
 						  & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__extop))
@@ -509,7 +573,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
 						  (0xfffff000U 
 						   & vlTOPp->cpu_tst__DOT__idataout)
 						   : vlTOPp->cpu_tst__DOT__mycpu__DOT__immgenImpl__DOT__immI)));
-    // ALWAYS at src/cpu.v:202
+    // ALWAYS at src/cpu.v:236
     if (vlTOPp->cpu_tst__DOT__mycpu__DOT__memwr) {
 	if ((0U == (7U & (vlTOPp->cpu_tst__DOT__idataout 
 			  >> 0xcU)))) {
@@ -568,7 +632,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
 						   & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__alubsrc))
 						   ? vlTOPp->cpu_tst__DOT__mycpu__DOT__imm
 						   : vlTOPp->cpu_tst__DOT__mycpu__DOT__rs2data));
-    // ALWAYS at src/cpu.v:457
+    // ALWAYS at src/cpu.v:491
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l4out 
 	= ((0x10U & vlTOPp->cpu_tst__DOT__mycpu__DOT__alub)
 	    ? ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr))
@@ -581,7 +645,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__adderbin 
 	= (VL_NEGATE_I((IData)((IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__sa))) 
 	   ^ vlTOPp->cpu_tst__DOT__mycpu__DOT__alub);
-    // ALWAYS at src/cpu.v:468
+    // ALWAYS at src/cpu.v:502
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l3out 
 	= ((8U & vlTOPp->cpu_tst__DOT__mycpu__DOT__alub)
 	    ? ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr))
@@ -595,7 +659,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
 	= ((vlTOPp->cpu_tst__DOT__mycpu__DOT__alua 
 	    + vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__adderbin) 
 	   + (IData)((QData)((IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__sa))));
-    // ALWAYS at src/cpu.v:479
+    // ALWAYS at src/cpu.v:513
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l2out 
 	= ((4U & vlTOPp->cpu_tst__DOT__mycpu__DOT__alub)
 	    ? ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr))
@@ -627,7 +691,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
 						   ^ 
 						   (vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__adderout 
 						    >> 0x1fU))));
-    // ALWAYS at src/cpu.v:490
+    // ALWAYS at src/cpu.v:524
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l1out 
 	= ((2U & vlTOPp->cpu_tst__DOT__mycpu__DOT__alub)
 	    ? ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr))
@@ -637,7 +701,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
 						    >> 2U)))
 	        : (0xfffffffcU & (vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l2out 
 				  << 2U))) : vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l2out);
-    // ALWAYS at src/cpu.v:521
+    // ALWAYS at src/cpu.v:555
     vlTOPp->__Vtableidx1 = ((0x10U & ((~ (IData)((0U 
 						  != vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__adderout))) 
 				      << 4U)) | (((IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__less) 
@@ -647,7 +711,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
 	[vlTOPp->__Vtableidx1];
     vlTOPp->cpu_tst__DOT__mycpu__DOT__pcbsrc = vlTOPp->__Vtable1_cpu_tst__DOT__mycpu__DOT__pcbsrc
 	[vlTOPp->__Vtableidx1];
-    // ALWAYS at src/cpu.v:501
+    // ALWAYS at src/cpu.v:535
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shiftout 
 	= ((1U & vlTOPp->cpu_tst__DOT__mycpu__DOT__alub)
 	    ? ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr))
@@ -688,11 +752,75 @@ void SingleRiscv::_settle__TOP__4(SingleRiscv__Syms* __restrict vlSymsp) {
 			   << 0xcU)) | (0xfffU & (vlTOPp->cpu_tst__DOT__idataout 
 						  >> 0x14U)));
     vlTOPp->cpu_tst__DOT__mycpu__DOT__op = (0x7fU & vlTOPp->cpu_tst__DOT__idataout);
+    vlTOPp->dbgregs_0 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0U];
+    vlTOPp->dbgregs_1 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[1U];
+    vlTOPp->dbgregs_2 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[2U];
+    vlTOPp->dbgregs_3 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[3U];
+    vlTOPp->dbgregs_4 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[4U];
+    vlTOPp->dbgregs_5 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[5U];
+    vlTOPp->dbgregs_6 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[6U];
+    vlTOPp->dbgregs_7 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[7U];
+    vlTOPp->dbgregs_8 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[8U];
+    vlTOPp->dbgregs_9 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[9U];
+    vlTOPp->dbgregs_10 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xaU];
+    vlTOPp->dbgregs_11 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xbU];
+    vlTOPp->dbgregs_12 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xcU];
+    vlTOPp->dbgregs_13 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xdU];
+    vlTOPp->dbgregs_14 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xeU];
+    vlTOPp->dbgregs_15 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0xfU];
+    vlTOPp->dbgregs_16 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x10U];
+    vlTOPp->dbgregs_17 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x11U];
+    vlTOPp->dbgregs_18 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x12U];
+    vlTOPp->dbgregs_19 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x13U];
+    vlTOPp->dbgregs_20 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x14U];
+    vlTOPp->dbgregs_21 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x15U];
+    vlTOPp->dbgregs_22 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x16U];
+    vlTOPp->dbgregs_23 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x17U];
+    vlTOPp->dbgregs_24 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x18U];
+    vlTOPp->dbgregs_25 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x19U];
+    vlTOPp->dbgregs_26 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1aU];
+    vlTOPp->dbgregs_27 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1bU];
+    vlTOPp->dbgregs_28 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1cU];
+    vlTOPp->dbgregs_29 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1dU];
+    vlTOPp->dbgregs_30 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1eU];
+    vlTOPp->dbgregs_31 = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
+	[0x1fU];
     vlTOPp->cpu_tst__DOT__mycpu__DOT__rs2data = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
 	[(0x1fU & (vlTOPp->cpu_tst__DOT__idataout >> 0x14U))];
     vlTOPp->cpu_tst__DOT__mycpu__DOT__rs1data = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
 	[(0x1fU & (vlTOPp->cpu_tst__DOT__idataout >> 0xfU))];
-    // ALWAYS at src/cpu.v:583
+    // ALWAYS at src/cpu.v:617
     vlTOPp->cpu_tst__DOT__mycpu__DOT__extop = 0U;
     vlTOPp->cpu_tst__DOT__mycpu__DOT__regwr = 0U;
     vlTOPp->cpu_tst__DOT__mycpu__DOT__aluasrc = 0U;
@@ -867,7 +995,7 @@ void SingleRiscv::_settle__TOP__4(SingleRiscv__Syms* __restrict vlSymsp) {
 	= (1U & (((IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr) 
 		  >> 3U) | ((IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr) 
 			    >> 1U)));
-    // ALWAYS at src/cpu.v:678
+    // ALWAYS at src/cpu.v:712
     vlTOPp->cpu_tst__DOT__mycpu__DOT__imm = ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__extop))
 					      ? ((2U 
 						  & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__extop))
@@ -958,7 +1086,7 @@ void SingleRiscv::_settle__TOP__4(SingleRiscv__Syms* __restrict vlSymsp) {
 						       (vlTOPp->cpu_tst__DOT__datamem__DOT__dwordout 
 							>> 8U)
 						        : vlTOPp->cpu_tst__DOT__datamem__DOT__dwordout)));
-    // ALWAYS at src/cpu.v:202
+    // ALWAYS at src/cpu.v:236
     if (vlTOPp->cpu_tst__DOT__mycpu__DOT__memwr) {
 	if ((0U == (7U & (vlTOPp->cpu_tst__DOT__idataout 
 			  >> 0xcU)))) {
@@ -1042,7 +1170,7 @@ void SingleRiscv::_settle__TOP__4(SingleRiscv__Syms* __restrict vlSymsp) {
 				  >> 0x18U) : (vlTOPp->cpu_tst__DOT__datamem__DOT__mymem__DOT__tempout 
 					       >> 0x18U)) 
 			     << 0x18U)));
-    // ALWAYS at src/cpu.v:457
+    // ALWAYS at src/cpu.v:491
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l4out 
 	= ((0x10U & vlTOPp->cpu_tst__DOT__mycpu__DOT__alub)
 	    ? ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr))
@@ -1055,7 +1183,7 @@ void SingleRiscv::_settle__TOP__4(SingleRiscv__Syms* __restrict vlSymsp) {
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__adderbin 
 	= (VL_NEGATE_I((IData)((IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__sa))) 
 	   ^ vlTOPp->cpu_tst__DOT__mycpu__DOT__alub);
-    // ALWAYS at src/cpu.v:468
+    // ALWAYS at src/cpu.v:502
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l3out 
 	= ((8U & vlTOPp->cpu_tst__DOT__mycpu__DOT__alub)
 	    ? ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr))
@@ -1069,7 +1197,7 @@ void SingleRiscv::_settle__TOP__4(SingleRiscv__Syms* __restrict vlSymsp) {
 	= ((vlTOPp->cpu_tst__DOT__mycpu__DOT__alua 
 	    + vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__adderbin) 
 	   + (IData)((QData)((IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__sa))));
-    // ALWAYS at src/cpu.v:479
+    // ALWAYS at src/cpu.v:513
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l2out 
 	= ((4U & vlTOPp->cpu_tst__DOT__mycpu__DOT__alub)
 	    ? ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr))
@@ -1101,7 +1229,7 @@ void SingleRiscv::_settle__TOP__4(SingleRiscv__Syms* __restrict vlSymsp) {
 						   ^ 
 						   (vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__adderout 
 						    >> 0x1fU))));
-    // ALWAYS at src/cpu.v:490
+    // ALWAYS at src/cpu.v:524
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l1out 
 	= ((2U & vlTOPp->cpu_tst__DOT__mycpu__DOT__alub)
 	    ? ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr))
@@ -1111,7 +1239,7 @@ void SingleRiscv::_settle__TOP__4(SingleRiscv__Syms* __restrict vlSymsp) {
 						    >> 2U)))
 	        : (0xfffffffcU & (vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l2out 
 				  << 2U))) : vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shifter__DOT__l2out);
-    // ALWAYS at src/cpu.v:521
+    // ALWAYS at src/cpu.v:555
     vlTOPp->__Vtableidx1 = ((0x10U & ((~ (IData)((0U 
 						  != vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__adderout))) 
 				      << 4U)) | (((IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__less) 
@@ -1121,7 +1249,7 @@ void SingleRiscv::_settle__TOP__4(SingleRiscv__Syms* __restrict vlSymsp) {
 	[vlTOPp->__Vtableidx1];
     vlTOPp->cpu_tst__DOT__mycpu__DOT__pcbsrc = vlTOPp->__Vtable1_cpu_tst__DOT__mycpu__DOT__pcbsrc
 	[vlTOPp->__Vtableidx1];
-    // ALWAYS at src/cpu.v:501
+    // ALWAYS at src/cpu.v:535
     vlTOPp->cpu_tst__DOT__mycpu__DOT__myalu__DOT__shiftout 
 	= ((1U & vlTOPp->cpu_tst__DOT__mycpu__DOT__alub)
 	    ? ((4U & (IData)(vlTOPp->cpu_tst__DOT__mycpu__DOT__aluctr))
