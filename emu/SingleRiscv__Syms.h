@@ -1,10 +1,11 @@
 // Verilated -*- C++ -*-
 // DESCRIPTION: Verilator output: Symbol table internal header
 //
-// Internal details; most calling programs do not need this header
+// Internal details; most calling programs do not need this header,
+// unless using verilator public meta comments.
 
-#ifndef _SingleRiscv__Syms_H_
-#define _SingleRiscv__Syms_H_
+#ifndef _SINGLERISCV__SYMS_H_
+#define _SINGLERISCV__SYMS_H_  // guard
 
 #include "verilated_heavy.h"
 
@@ -29,6 +30,6 @@ class SingleRiscv__Syms : public VerilatedSyms {
     // METHODS
     inline const char* name() { return __Vm_namep; }
     
-} VL_ATTR_ALIGNED(64);
+} VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
-#endif // guard
+#endif  // guard

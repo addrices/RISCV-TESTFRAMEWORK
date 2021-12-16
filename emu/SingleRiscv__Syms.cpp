@@ -4,12 +4,14 @@
 #include "SingleRiscv__Syms.h"
 #include "SingleRiscv.h"
 
+
+
 // FUNCTIONS
 SingleRiscv__Syms::SingleRiscv__Syms(SingleRiscv* topp, const char* namep)
-	// Setup locals
-	: __Vm_namep(namep)
-	, __Vm_didInit(false)
-	// Setup submodule names
+    // Setup locals
+    : __Vm_namep(namep)
+    , __Vm_didInit(false)
+    // Setup submodule names
 {
     // Pointer to top level
     TOPp = topp;
