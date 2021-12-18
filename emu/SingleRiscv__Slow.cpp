@@ -43,7 +43,7 @@ void SingleRiscv::_settle__TOP__4(SingleRiscv__Syms* __restrict vlSymsp) {
     // Body
     vlTOPp->dbg_pc = vlTOPp->cpu_tst__DOT__mycpu__DOT__dbg_pc_r;
     vlTOPp->wb = vlTOPp->cpu_tst__DOT__mycpu__DOT__wb_r;
-    vlTOPp->done = (0U == vlTOPp->cpu_tst__DOT__idataout);
+    vlTOPp->done = (0xdead10ccU == vlTOPp->cpu_tst__DOT__idataout);
     vlTOPp->cpu_tst__DOT__mycpu__DOT__immgenImpl__DOT__immI 
         = ((0xfffff000U & ((- (IData)((1U & (vlTOPp->cpu_tst__DOT__idataout 
                                              >> 0x1fU)))) 

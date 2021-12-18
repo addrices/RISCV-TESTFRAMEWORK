@@ -297,7 +297,7 @@ VL_INLINE_OPT void SingleRiscv::_sequent__TOP__3(SingleRiscv__Syms* __restrict v
     vlTOPp->cpu_tst__DOT__idataout = vlTOPp->cpu_tst__DOT__instructions__DOT__ram
         [(0xffffU & (((IData)(vlTOPp->reset) ? 0U : vlTOPp->cpu_tst__DOT__mycpu__DOT__nextpc) 
                      >> 2U))];
-    vlTOPp->done = (0U == vlTOPp->cpu_tst__DOT__idataout);
+    vlTOPp->done = (0xdead10ccU == vlTOPp->cpu_tst__DOT__idataout);
     vlTOPp->cpu_tst__DOT__mycpu__DOT__rs2data = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
         [(0x1fU & (vlTOPp->cpu_tst__DOT__idataout >> 0x14U))];
     vlTOPp->cpu_tst__DOT__mycpu__DOT__rs1data = vlTOPp->cpu_tst__DOT__mycpu__DOT__myregfile__DOT__regs
