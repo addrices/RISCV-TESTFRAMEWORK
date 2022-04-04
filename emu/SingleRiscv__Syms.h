@@ -4,32 +4,34 @@
 // Internal details; most calling programs do not need this header,
 // unless using verilator public meta comments.
 
-#ifndef _SINGLERISCV__SYMS_H_
-#define _SINGLERISCV__SYMS_H_  // guard
+#ifndef VERILATED_SINGLERISCV__SYMS_H_
+#define VERILATED_SINGLERISCV__SYMS_H_  // guard
 
-#include "verilated_heavy.h"
+#include "verilated.h"
 
-// INCLUDE MODULE CLASSES
+// INCLUDE MODEL CLASS
+
 #include "SingleRiscv.h"
 
-// SYMS CLASS
-class SingleRiscv__Syms : public VerilatedSyms {
+// INCLUDE MODULE CLASSES
+#include "SingleRiscv___024root.h"
+
+// SYMS CLASS (contains all model state)
+class SingleRiscv__Syms final : public VerilatedSyms {
   public:
-    
-    // LOCAL STATE
-    const char* __Vm_namep;
-    bool __Vm_didInit;
-    
-    // SUBCELL STATE
-    SingleRiscv*                   TOPp;
-    
-    // CREATORS
-    SingleRiscv__Syms(SingleRiscv* topp, const char* namep);
-    ~SingleRiscv__Syms() {}
-    
+    // INTERNAL STATE
+    SingleRiscv* const __Vm_modelp;
+    bool __Vm_didInit = false;
+
+    // MODULE INSTANCE STATE
+    SingleRiscv___024root          TOP;
+
+    // CONSTRUCTORS
+    SingleRiscv__Syms(VerilatedContext* contextp, const char* namep, SingleRiscv* modelp);
+    ~SingleRiscv__Syms();
+
     // METHODS
-    inline const char* name() { return __Vm_namep; }
-    
+    const char* name() { return TOP.name(); }
 } VL_ATTR_ALIGNED(VL_CACHE_LINE_BYTES);
 
 #endif  // guard

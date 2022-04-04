@@ -6,9 +6,16 @@
 #include <stdint.h>
 #include <assert.h>
 
+vluint64_t main_time = 0; // Current simulation time
+
+double sc_time_stamp()
+{                   // Called by $time in Verilog
+  return main_time; // converts to double, to match
+                    // what SystemC does
+}
+
 //SingleRiscv运行一个周期
 void next_cycle_r(std::shared_ptr<SingleRiscv> dut){
-  dut->eval();
   dut->clk = 0;
   dut->eval();
   dut->clk = 1;
@@ -17,9 +24,10 @@ void next_cycle_r(std::shared_ptr<SingleRiscv> dut){
 
 //mycpu运行一个周期
 void next_cycle(std::shared_ptr<emu> mycpu){
-  mycpu->eval();
+  main_time++;
   mycpu->clk = 0;
   mycpu->eval();
+  main_time++;
   mycpu->clk = 1;
   mycpu->eval();
 }
@@ -78,13 +86,14 @@ uint64_t char2int(char *argv){
 int main(int argc, char **argv) {
   std::shared_ptr<SingleRiscv> dut = std::make_shared<SingleRiscv>();
   std::shared_ptr<emu> mycpu = std::make_shared<emu>();
+  Verilated::commandArgs(argc, argv);
 
-  if(argc != 2){
-    printf("program have one argv\n");
-    assert(0);
-  }
-  printf("%s\n",argv[1]);
-  uint64_t testcase = char2int(argv[1]);
+#ifdef __TRACE__
+  Verilated::traceEverOn(true);
+  Verilated::mkdir("../logs");
+#endif
+  printf("%s\n",argv[argc-1]);
+  uint64_t testcase = char2int(argv[argc-1]);
   // initial， reset的时候imem读取对应的testbench。
   dut->reset = 1;
   mycpu->reset = 1;
