@@ -83,18 +83,38 @@ always @(posedge clk) begin
 	end
 end
 
-/*
-reg [31:0] count_r;
-always @(posedge clk) begin
-  if(reset == 1) begin
-    count_r <= 0;
-  end
-  else begin
-    count_r <= count_r + 1;
-    $display("count_r: %d ",count_r);
-  end
-end
-*/
+assign dbgregs_0 = mycpu.myregfile.regs[0];
+assign dbgregs_1 = mycpu.myregfile.regs[1];
+assign dbgregs_2 = mycpu.myregfile.regs[2];
+assign dbgregs_3 = mycpu.myregfile.regs[3];
+assign dbgregs_4 = mycpu.myregfile.regs[4];
+assign dbgregs_5 = mycpu.myregfile.regs[5];
+assign dbgregs_6 = mycpu.myregfile.regs[6];
+assign dbgregs_7 = mycpu.myregfile.regs[7];
+assign dbgregs_8 = mycpu.myregfile.regs[8];
+assign dbgregs_9 = mycpu.myregfile.regs[9];
+assign dbgregs_10 = mycpu.myregfile.regs[10];
+assign dbgregs_11 = mycpu.myregfile.regs[11];
+assign dbgregs_12 = mycpu.myregfile.regs[12];
+assign dbgregs_13 = mycpu.myregfile.regs[13];
+assign dbgregs_14 = mycpu.myregfile.regs[14];
+assign dbgregs_15 = mycpu.myregfile.regs[15];
+assign dbgregs_16 = mycpu.myregfile.regs[16];
+assign dbgregs_17 = mycpu.myregfile.regs[17];
+assign dbgregs_18 = mycpu.myregfile.regs[18];
+assign dbgregs_19 = mycpu.myregfile.regs[19];
+assign dbgregs_20 = mycpu.myregfile.regs[20];
+assign dbgregs_21 = mycpu.myregfile.regs[21];
+assign dbgregs_22 = mycpu.myregfile.regs[22];
+assign dbgregs_23 = mycpu.myregfile.regs[23];
+assign dbgregs_24 = mycpu.myregfile.regs[24];
+assign dbgregs_25 = mycpu.myregfile.regs[25];
+assign dbgregs_26 = mycpu.myregfile.regs[26];
+assign dbgregs_27 = mycpu.myregfile.regs[27];
+assign dbgregs_28 = mycpu.myregfile.regs[28];
+assign dbgregs_29 = mycpu.myregfile.regs[29];
+assign dbgregs_30 = mycpu.myregfile.regs[30];
+assign dbgregs_31 = mycpu.myregfile.regs[31];
 
 endmodule
 
