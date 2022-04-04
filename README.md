@@ -7,7 +7,7 @@ git clone https://github.com/addrices/RISCV-TESTFRAMEWORK
 
 sudo apt-get install verilator
 ```
-注意使用的 verilator 版本为 3.916，ubuntu18.04 的源可以用的。
+注意使用的 verilator 版本为 4.038，ubuntu18.04 的源可以用的。
 
 testcase部分
 ```
