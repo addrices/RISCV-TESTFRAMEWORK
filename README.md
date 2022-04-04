@@ -1,5 +1,10 @@
 # RISCV-TESTFRAMEWORK
 
+## 分支说明
+由于测试标准是使用一个单周期RISCV-CPU完成的（源码是学生需要的作业，这里不放出来），并使用verilator编译，所以对不同的版本的c模拟文件有所不同，根据分支名选择自己需要的版本。
+
+其中4_216支持了波形文件的生成，安装按照```git@github.com:verilator/verilator.git```的说明即可。
+
 ## 安装方法
 
 ```
